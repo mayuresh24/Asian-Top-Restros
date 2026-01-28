@@ -1,0 +1,324 @@
+/* =====================================================
+   ASIAN ICONIC RESTAURANTS
+   LUXURY EDITORIAL DESIGN SYSTEM
+===================================================== */
+
+/* -----------------------------
+   1. DESIGN TOKENS
+------------------------------ */
+:root {
+  --bg-light: #f6f3ee;
+  --bg-dark: #111111;
+  --bg-soft-dark: #1a1a1a;
+
+  --maroon: #6b1f1f;
+  --maroon-soft: #8a2a2a;
+
+  --text-dark: #1e1e1e;
+  --text-light: #f5f5f5;
+  --text-muted: #9a9a9a;
+
+  --container: 1200px;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 120px;
+  --space-xxl: 180px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+}
+
+/* -----------------------------
+   2. RESET & BASE
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   GLOBAL COLOR & TITLE REFINEMENT
+================================ */
+
+body {
+  background: #f6f3ee; /* off-white */
+  color: #6b1f1f;      /* maroon */
+}
+
+/* Section titles */
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;     /* reduced size */
+  color: #6b1f1f;
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+/* Section subtitles / text */
+.section-desc {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 1rem;
+}
+
+/* Override dark text where needed */
+.section-dark {
+  background: #f6f3ee;
+  color: #6b1f1f;
+}
+
+/* -----------------------------
+   3. TYPOGRAPHY SYSTEM
+------------------------------ */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* -----------------------------
+   4. LAYOUT CONTAINER
+------------------------------ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* -----------------------------
+   5. BUTTON SYSTEM
+------------------------------ */
+.btn-primary {
+  background: var(--maroon);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 40px;
+  border: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--maroon-soft);
+}
+
+/* -----------------------------
+   6. HERO (CINEMATIC)
+------------------------------ */
+.hero {
+  height: 100vh;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.85)
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.hero-content p {
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+/* -----------------------------
+   7. SECTION TYPES
+------------------------------ */
+
+/* Light editorial */
+.section-light {
+  background: var(--bg-light);
+  padding: var(--space-xl) 0;
+}
+
+.section-dark p {
+  color: var(--text-muted);
+}
+
+/* -----------------------------
+   8. ASIA SELECTOR GRID
+------------------------------ */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.country {
+  background: #fff;
+  padding: var(--space-lg);
+  text-align: center;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* -----------------------------
+   9. FEATURED RESTAURANTS
+------------------------------ */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  height: 420px;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-card .badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+.featured-card h3 {
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  color: #fff;
+}
+
+.featured-card p {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #ddd;
+}
+
+/* -----------------------------
+   10. SIGNATURE DISHES
+------------------------------ */
+.dish-track {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.dish {
+  min-width: 320px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+/* -----------------------------
+   11. FOUNDER STORY
+------------------------------ */
+.founder {
+  text-align: center;
+}
+
+.founder blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-top: var(--space-md);
+  color: var(--maroon);
+}
+
+/* -----------------------------
+   12. TRUST / WHY IT WORKS
+------------------------------ */
+.why-works ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: var(--space-md);
+}
+
+.why-works li {
+  list-style: none;
+  background: #fff;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+/* -----------------------------
+   13. CTA
+------------------------------ */
+.cta {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: var(--space-xxl) var(--space-md);
+}
+
+.cta h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* -----------------------------
+   14. MOBILE REFINEMENT
+------------------------------ */
+@media (max-width: 768px) {
+  .hero-content {
+    bottom: 14%;
+    padding: 0 var(--space-md);
+  }
+
+  .founder {
+    grid-template-columns: 1fr;
+  }
+}
+
