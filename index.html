@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asian Iconic Restaurants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- GSAP + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/hero.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>Asia’s Most Iconic Restaurants<br>And The Stories Behind Them</h1>
+    <p>Cuisine • Culture • Founder Stories</p>
+    <button class="btn-primary">Explore Restaurants</button>
+  </div>
+</section>
+
+<!-- ================= REGION SELECTOR ================= -->
+<section class="section-light asia-selector">
+  <div class="container">
+    <h2 class="section-title">Explore Asia by Region</h2>
+    <p class="section-desc">
+      Discover legendary restaurants across Asia, from heritage kitchens
+      to modern culinary icons.
+    </p>
+
+    <div class="country-grid">
+      <div class="country">Indonesia</div>
+      <div class="country">Japan</div>
+      <div class="country">India</div>
+      <div class="country">Thailand</div>
+      <div class="country">Korea</div>
+      <div class="country">Vietnam</div>
+      <div class="country">China</div>
+      <div class="country">Singapore</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED RESTAURANTS (20+) ================= -->
+<section class="section-light featured">
+  <div class="container">
+    <h2 class="section-title">Top Restaurants of the Month</h2>
+    <p class="section-desc">
+      Hand-selected by our editorial team for excellence,
+      authenticity, and cultural impact.
+    </p>
+
+    <div class="featured-grid">
+
+      <!-- INDONESIA -->
+      <div class="featured-card">
+        <span class="badge">Editor’s Pick</span>
+        <h3>Bali Heritage Kitchen</h3>
+        <p>Indonesian • Bali</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Cultural Icon</span>
+        <h3>Padang Raya House</h3>
+        <p>Indonesian • West Sumatra</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Legacy Brand</span>
+        <h3>Java Colonial Table</h3>
+        <p>Indonesian • Yogyakarta</p>
+      </div>
+
+      <!-- JAPAN -->
+      <div class="featured-card">
+        <span class="badge">Chef’s Legacy</span>
+        <h3>Kyoto Kaiseki House</h3>
+        <p>Japanese • Kyoto</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Minimal Mastery</span>
+        <h3>Sushi Hoshin</h3>
+        <p>Japanese • Tokyo</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Heritage</span>
+        <h3>Osaka Umami Den</h3>
+        <p>Japanese • Osaka</p>
+      </div>
+
+      <!-- INDIA -->
+      <div class="featured-card">
+        <span class="badge">Cultural Icon</span>
+        <h3>Old Delhi Spice Court</h3>
+        <p>Indian • Delhi</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Royal Cuisine</span>
+        <h3>Jaipur Darbar Rasoi</h3>
+        <p>Indian • Rajasthan</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Modern Indian</span>
+        <h3>Bombay Progressive</h3>
+        <p>Indian • Mumbai</p>
+      </div>
+
+      <!-- THAILAND -->
+      <div class="featured-card">
+        <span class="badge">Street Legend</span>
+        <h3>Bangkok Flame Wok</h3>
+        <p>Thai • Bangkok</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Chef Driven</span>
+        <h3>Chiang Mai Clay Pot</h3>
+        <p>Thai • Chiang Mai</p>
+      </div>
+
+      <!-- KOREA -->
+      <div class="featured-card">
+        <span class="badge">Heritage</span>
+        <h3>Seoul Hanok Table</h3>
+        <p>Korean • Seoul</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Modern Seoul</span>
+        <h3>Gangnam Fire Grill</h3>
+        <p>Korean • Seoul</p>
+      </div>
+
+      <!-- VIETNAM -->
+      <div class="featured-card">
+        <span class="badge">Cultural Icon</span>
+        <h3>Hanoi Pho Ancestral</h3>
+        <p>Vietnamese • Hanoi</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Street Heritage</span>
+        <h3>Saigon Night Noodles</h3>
+        <p>Vietnamese • Ho Chi Minh City</p>
+      </div>
+
+      <!-- CHINA -->
+      <div class="featured-card">
+        <span class="badge">Imperial Legacy</span>
+        <h3>Beijing Imperial Kitchen</h3>
+        <p>Chinese • Beijing</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Regional Classic</span>
+        <h3>Sichuan Pepper House</h3>
+        <p>Chinese • Chengdu</p>
+      </div>
+
+      <!-- SINGAPORE -->
+      <div class="featured-card">
+        <span class="badge">Modern Asia</span>
+        <h3>Straits Culinary Lab</h3>
+        <p>Asian Fusion • Singapore</p>
+      </div>
+
+      <div class="featured-card">
+        <span class="badge">Street Luxury</span>
+        <h3>Hawker Legacy Table</h3>
+        <p>Singaporean • Singapore</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIGNATURE SPECIALTIES ================= -->
+<section class="section-light signature">
+  <div class="container">
+    <h2 class="section-title">Signature Specialties</h2>
+    <p class="section-desc">
+      These dishes didn’t just sell food — they built reputations.
+    </p>
+
+    <div class="dish-track">
+      <div class="dish">
+        <h3>Nasi Padang Rendang</h3>
+        <p>Slow-cooked beef in coconut and spices, perfected over decades.</p>
+      </div>
+
+      <div class="dish">
+        <h3>Kyoto Seasonal Kaiseki</h3>
+        <p>A multi-course reflection of seasons, discipline, and restraint.</p>
+      </div>
+
+      <div class="dish">
+        <h3>Old Delhi Butter Chicken</h3>
+        <p>A balance of smoke, richness, and nostalgia.</p>
+      </div>
+
+      <div class="dish">
+        <h3>Bangkok Street Pad Thai</h3>
+        <p>Street technique refined through consistency and speed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER STORIES ================= -->
+<section class="section-light founder">
+  <div class="container">
+    <h2 class="section-title">From an Idea to an Icon</h2>
+    <p class="section-desc">
+      These restaurants were born from personal obsession, not trends.
+    </p>
+
+    <blockquote>
+      “I started cooking to preserve my family’s recipes —
+      the restaurant came later.”
+    </blockquote>
+  </div>
+</section>
+
+<!-- ================= WHY IT WORKS ================= -->
+<section class="section-light why-works">
+  <div class="container">
+    <h2 class="section-title">Why These Restaurants Work</h2>
+    <p class="section-desc">
+      Different cuisines, same principles.
+    </p>
+
+    <ul>
+      <li>Founder-led vision and daily involvement</li>
+      <li>Strong cultural identity</li>
+      <li>Consistency over hype</li>
+      <li>Respect for ingredients and technique</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FILTERS ================= -->
+<section class="section-light filters">
+  <div class="container">
+    <h2 class="section-title">Browse by Cuisine & Experience</h2>
+    <p class="section-desc">
+      Choose how you want to explore Asia’s food culture.
+    </p>
+
+    <div class="filter-tags">
+      <span>Japanese</span>
+      <span>Indian</span>
+      <span>Indonesian</span>
+      <span>Thai</span>
+      <span>Heritage Dining</span>
+      <span>Street Luxury</span>
+      <span>Fine Dining</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INTERVIEWS ================= -->
+<section class="section-light interviews">
+  <div class="container">
+    <h2 class="section-title">Behind the Scenes</h2>
+    <p class="section-desc">
+      Conversations, kitchens, and quiet moments that define greatness.
+    </p>
+
+    <p style="text-align:center;">
+      Founder Interviews • Prep Rituals • A Day in the Kitchen
+    </p>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="section-light trust">
+  <div class="container">
+    <h2 class="section-title">Why Trust This Platform?</h2>
+    <p class="section-desc">
+      We don’t sell rankings. We document stories.
+    </p>
+
+    <p style="text-align:center;">
+      180+ Restaurants Covered • 9 Countries • Direct Founder Access
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="container">
+    <h2 class="section-title">Join the Culinary Story</h2>
+    <p class="section-desc">
+      Are you a restaurant owner or cultural storyteller?
+    </p>
+
+    <button class="btn-primary">Get Featured</button>
+  </div>
+</section>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow"></div>
+
+<!-- JS -->
+<script src="js/main.js"></script>
+</body>
+</html>
+
