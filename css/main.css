@@ -1,3 +1,37 @@
+/* =====================================
+   DECORATIVE SECTION TITLES
+===================================== */
+
+.decorative-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+}
+
+/* Left & Right lines */
+.decorative-title::before,
+.decorative-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(107, 31, 31, 0.6),
+    transparent
+  );
+}
+
+/* Optional: adjust spacing on small screens */
+@media (max-width: 600px) {
+  .decorative-title {
+    gap: 14px;
+  }
+}
+
 /* =====================================================
    ASIAN ICONIC RESTAURANTS
    LUXURY EDITORIAL DESIGN SYSTEM
