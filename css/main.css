@@ -172,6 +172,16 @@ p {
   background: var(--bg-dark);
   overflow: hidden;
 }
+/* =====================================
+   HERO SECTION – MAROON BACKGROUND
+===================================== */
+
+.hero-maroon {
+  position: relative;
+  min-height: 100vh;
+  background-color: #6b1f1f; /* MAROON */
+  overflow: hidden;
+}
 
 .hero video {
   position: absolute;
