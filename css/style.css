@@ -257,3 +257,22 @@ body {
 .cta .section-desc {
   color: #f6f3ee;
 }
+
+/* ===============================
+   CHEF HAT BELOW HERO BUTTON
+================================ */
+
+.chef-hat {
+  display: block;
+  margin: 26px auto 0;
+  width: 64px;           /* elegant size */
+  opacity: 0.85;
+}
+
+/* Slight refinement on mobile */
+@media (max-width: 600px) {
+  .chef-hat {
+    width: 52px;
+    margin-top: 22px;
+  }
+}
