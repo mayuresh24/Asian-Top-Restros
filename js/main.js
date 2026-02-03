@@ -15,34 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("Smoke layer found. Starting smoke animation.");
 
-  function createSmoke() {
-    const smoke = document.createElement("div");
-    smoke.className = "smoke";
-    smokeLayer.appendChild(smoke);
+function createSmoke() {
+  const smoke = document.createElement("div");
+  smoke.className = "smoke";
+  smokeLayer.appendChild(smoke);
 
-    const size = 180 + Math.random() * 120;
-    const x = Math.random() * window.innerWidth;
+  smoke.style.left = "50%";
+  smoke.style.transform = "translateX(-50%)";
 
-    smoke.style.width = size + "px";
-    smoke.style.height = size + "px";
-    smoke.style.left = x + "px";
+  smoke.animate(
+    [
+      { transform: "translate(-50%, 0)", opacity: 0 },
+      { opacity: 1 },
+      { transform: "translate(-50%, -400px)", opacity: 0 }
+    ],
+    {
+      duration: 6000,
+      easing: "ease-out"
+    }
+  );
 
-    smoke.animate(
-      [
-        { transform: "translateY(0)", opacity: 0 },
-        { opacity: 0.25 },
-        { transform: "translateY(-600px)", opacity: 0 }
-      ],
-      {
-        duration: 8000,
-        easing: "ease-out"
-      }
-    );
-
-    setTimeout(() => {
-      smoke.remove();
-    }, 8000);
-  }
+  setTimeout(() => smoke.remove(), 6000);
+}
 
   // Start smoke slowly
   setInterval(createSmoke, 1000);
