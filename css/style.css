@@ -70,21 +70,25 @@ body {
   z-index: 1;
   pointer-events: none;
 }
-
 .smoke {
   position: absolute;
-  bottom: -120px;
-  width: 220px;
-  height: 220px;
+  bottom: 0;
+  width: 260px;
+  height: 260px;
+
+  /* STRONG visibility for testing */
   background: radial-gradient(
     circle,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.1),
     transparent 70%
   );
-  filter: blur(30px);
-  opacity: 0;
+
+  filter: blur(10px);   /* reduced blur */
+  opacity: 1;           /* force visible */
 }
+
 
 /* SECTIONS */
 .section-light {
