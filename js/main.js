@@ -1,7 +1,6 @@
 /* =====================================================
    ASIAN ICONIC RESTAURANTS
    CINEMATIC ANIMATION ENGINE
-   Smooth Scroll + GSAP + Parallax + Cursor
 ===================================================== */
 
 /* -----------------------------
@@ -15,7 +14,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 ------------------------------ */
 let lenis;
 
-if (!isTouchDevice && !prefersReducedMotion) {
+if (!isTouchDevice && !prefersReducedMotion && typeof Lenis !== "undefined") {
   lenis = new Lenis({
     duration: 1.25,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -33,28 +32,28 @@ if (!isTouchDevice && !prefersReducedMotion) {
 /* -----------------------------
    2. GSAP SETUP
 ------------------------------ */
-gsap.registerPlugin(ScrollTrigger);
+if (typeof gsap !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
 
-if (lenis) {
-  lenis.on("scroll", ScrollTrigger.update);
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+  if (lenis) {
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  }
 }
 
 /* -----------------------------
-   3. GLOBAL ANIMATION SETTINGS
+   3. GLOBAL SETTINGS
 ------------------------------ */
 const EASE = "power3.out";
 const FAST = 0.7;
 const NORMAL = 1.1;
-
-/* Utility: Safe selector */
 const $$ = (sel) => document.querySelectorAll(sel);
 
 /* -----------------------------
-   4. HERO CINEMATIC INTRO
+   4. HERO INTRO ANIMATION
 ------------------------------ */
 if ($$(".hero-content h1").length) {
   gsap.from(".hero-content h1", {
@@ -75,13 +74,13 @@ if ($$(".hero-content p").length) {
   });
 }
 
-if ($$(".hero-content .btn-primary").length) {
-  gsap.from(".hero-content .btn-primary", {
-    scale: 0.85,
+if ($$(".hero-btn").length) {
+  gsap.from(".hero-btn", {
+    scale: 0.9,
     opacity: 0,
-    delay: 0.5,
+    delay: 0.45,
     duration: FAST,
-    ease: "back.out(1.7)"
+    ease: "back.out(1.6)"
   });
 }
 
@@ -89,168 +88,71 @@ if ($$(".hero-content .btn-primary").length) {
    5. GENERIC SECTION REVEALS
 ------------------------------ */
 $$("section").forEach((section) => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: "top 85%",
-      toggleActions: "play none none reverse"
-    },
-    y: 80,
-    opacity: 0,
-    duration: NORMAL,
-    ease: EASE
-  });
+  if (!section.classList.contains("hero")) {
+    gsap.from(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%"
+      },
+      y: 60,
+      opacity: 0,
+      duration: NORMAL,
+      ease: EASE
+    });
+  }
 });
 
 /* -----------------------------
-   6. COUNTRY / REGION STAGGER
+   6. REGION / COUNTRY CARDS
 ------------------------------ */
-if ($$(".country").length) {
-  gsap.from(".country", {
+if ($$(".country-card").length) {
+  gsap.from(".country-card", {
     scrollTrigger: {
-      trigger: ".asia-selector",
-      start: "top 70%"
+      trigger: ".country-grid",
+      start: "top 75%"
     },
-    y: 60,
+    y: 50,
     opacity: 0,
-    stagger: 0.15,
+    stagger: 0.12,
     duration: FAST,
     ease: EASE
   });
 }
 
 /* -----------------------------
-   7. FEATURED RESTAURANT CARDS
+   7. FEATURED CARDS HOVER
 ------------------------------ */
-if ($$(".featured-card").length) {
-  gsap.from(".featured-card", {
-    scrollTrigger: {
-      trigger: ".featured",
-      start: "top 70%"
-    },
-    scale: 0.92,
-    opacity: 0,
-    stagger: 0.2,
-    duration: NORMAL,
-    ease: EASE
-  });
-}
-
-/* Card hover lift */
 $$(".featured-card").forEach((card) => {
   card.addEventListener("mouseenter", () => {
-    gsap.to(card, { y: -14, duration: 0.35, ease: EASE });
+    gsap.to(card, { y: -10, duration: 0.3, ease: EASE });
   });
   card.addEventListener("mouseleave", () => {
-    gsap.to(card, { y: 0, duration: 0.35, ease: EASE });
+    gsap.to(card, { y: 0, duration: 0.3, ease: EASE });
   });
 });
 
 /* -----------------------------
-   8. SIGNATURE DISH HORIZONTAL SCROLL
+   8. FOUNDER QUOTE REVEAL
 ------------------------------ */
-if ($$(".dish-track").length) {
-  gsap.to(".dish-track", {
-    xPercent: -50,
-    ease: "none",
+if ($$(".founder-quote").length) {
+  gsap.from(".founder-quote", {
     scrollTrigger: {
-      trigger: ".signature",
-      start: "top center",
-      end: "bottom center",
-      scrub: true
-    }
-  });
-}
-
-/* -----------------------------
-   9. FOUNDER STORY REVEALS
------------------------------- */
-if ($$(".founder-text h2").length) {
-  gsap.from(".founder-text h2", {
-    scrollTrigger: {
-      trigger: ".founder",
-      start: "top 75%"
-    },
-    x: -90,
-    opacity: 0,
-    duration: NORMAL,
-    ease: EASE
-  });
-}
-
-if ($$(".founder-text blockquote").length) {
-  gsap.from(".founder-text blockquote", {
-    scrollTrigger: {
-      trigger: ".founder",
-      start: "top 70%"
+      trigger: ".founder-quote",
+      start: "top 80%"
     },
     y: 40,
     opacity: 0,
-    delay: 0.25,
-    duration: FAST,
+    duration: NORMAL,
     ease: EASE
   });
 }
 
 /* -----------------------------
-   10. PARALLAX FOOD IMAGERY
------------------------------- */
-if (!isTouchDevice && !prefersReducedMotion) {
-  $$(".parallax-img").forEach((img) => {
-    gsap.fromTo(
-      img,
-      { y: -60 },
-      {
-        y: 60,
-        ease: "none",
-        scrollTrigger: {
-          trigger: img,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
-        }
-      }
-    );
-  });
-}
-
-/* -----------------------------
-   11. CINEMATIC CURSOR EFFECT
------------------------------- */
-const cursorGlow = document.querySelector(".cursor-glow");
-
-if (!isTouchDevice && cursorGlow) {
-  window.addEventListener("mousemove", (e) => {
-    gsap.to(cursorGlow, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.6,
-      ease: EASE
-    });
-  });
-
-  const heroContent = document.querySelector(".hero-content");
-  if (heroContent) {
-    window.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-
-      gsap.to(heroContent, {
-        x,
-        y,
-        duration: 0.9,
-        ease: EASE
-      });
-    });
-  }
-}
-
-/* -----------------------------
-   12. FILTER TAG MICRO-INTERACTION
+   9. FILTER TAG MICRO EFFECT
 ------------------------------ */
 $$(".filter-tags span").forEach((tag) => {
   tag.addEventListener("mouseenter", () => {
-    gsap.to(tag, { scale: 1.08, duration: 0.2 });
+    gsap.to(tag, { scale: 1.06, duration: 0.2 });
   });
   tag.addEventListener("mouseleave", () => {
     gsap.to(tag, { scale: 1, duration: 0.2 });
@@ -258,10 +160,10 @@ $$(".filter-tags span").forEach((tag) => {
 });
 
 /* -----------------------------
-   13. FINAL CTA EMPHASIS
+   10. CTA EMPHASIS
 ------------------------------ */
-if ($$(".cta h2").length) {
-  gsap.from(".cta h2", {
+if ($$(".cta .hero-btn").length) {
+  gsap.from(".cta .hero-btn", {
     scrollTrigger: {
       trigger: ".cta",
       start: "top 80%"
@@ -273,8 +175,50 @@ if ($$(".cta h2").length) {
   });
 }
 
-/* -----------------------------
-   14. FINAL REFRESH (SAFETY)
------------------------------- */
-ScrollTrigger.refresh();
+/* =====================================================
+   11. HERO KITCHEN SMOKE ANIMATION (IDEA 6)
+===================================================== */
 
+const smokeLayer = document.querySelector(".smoke-layer");
+
+if (smokeLayer && !prefersReducedMotion) {
+
+  function createSmoke() {
+    const smoke = document.createElement("div");
+    smoke.className = "smoke";
+    smokeLayer.appendChild(smoke);
+
+    const startX = Math.random() * window.innerWidth;
+    const driftX = (Math.random() - 0.5) * 120;
+    const size = 180 + Math.random() * 140;
+    const duration = 6000 + Math.random() * 4000;
+
+    smoke.style.width = size + "px";
+    smoke.style.height = size + "px";
+    smoke.style.left = startX + "px";
+
+    smoke.animate(
+      [
+        { transform: "translate(0, 0)", opacity: 0 },
+        { opacity: 0.22 },
+        { transform: `translate(${driftX}px, -600px)`, opacity: 0 }
+      ],
+      {
+        duration: duration,
+        easing: "ease-out"
+      }
+    );
+
+    setTimeout(() => smoke.remove(), duration);
+  }
+
+  // slow & calm smoke
+  setInterval(createSmoke, 1000);
+}
+
+/* -----------------------------
+   12. FINAL SAFETY REFRESH
+------------------------------ */
+if (typeof ScrollTrigger !== "undefined") {
+  ScrollTrigger.refresh();
+}
