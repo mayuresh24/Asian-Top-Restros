@@ -53,5 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Gentle, cinematic frequency
-  setInterval(createSmoke, 1200);
+  setInterval(createSmoke, 900); 
 });
