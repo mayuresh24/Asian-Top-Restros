@@ -1,15 +1,11 @@
-/* ===============================
-   RESET
-================================ */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===============================
-   BASE
-================================ */
+/* BASE */
 body {
   font-family: 'Inter', sans-serif;
   background: #f6f3ee;
@@ -17,9 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===============================
-   HERO SECTION
-================================ */
+/* HERO */
 .hero {
   min-height: 100vh;
   position: relative;
@@ -29,61 +23,52 @@ body {
 }
 
 .hero-maroon {
-  background-color: #6b1f1f;
+  background: #6b1f1f;
   overflow: hidden;
 }
 
-/* Hero content stays above smoke */
 .hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
   max-width: 900px;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   color: #f6f3ee;
-  line-height: 1.2;
 }
 
 .hero-content p {
-  margin: 22px 0 36px;
+  margin: 20px 0 30px;
   color: #e8d9d4;
-  letter-spacing: 0.04em;
 }
 
 .hero-btn {
-  background: #f6f3ee;
-  color: #6b1f1f;
-  border: none;
   padding: 14px 36px;
   border-radius: 30px;
+  border: none;
+  background: #f6f3ee;
+  color: #6b1f1f;
   cursor: pointer;
-  font-size: 0.9rem;
 }
 
-/* ===============================
-   CHEF HAT
-================================ */
+/* CHEF HAT */
 .chef-hat {
   display: block;
-  margin: 26px auto 0;
-  width: 64px;
+  width: 60px;
+  margin: 24px auto 0;
   opacity: 0.85;
 }
 
-/* ===============================
-   KITCHEN SMOKE LAYER
-================================ */
+/* SMOKE */
 .smoke-layer {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
 }
 
 .smoke {
@@ -94,206 +79,50 @@ body {
   background: radial-gradient(
     circle,
     rgba(255,255,255,0.12),
-    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.04),
     transparent 70%
   );
-  filter: blur(28px);
+  filter: blur(30px);
   opacity: 0;
 }
 
-/* ===============================
-   LAYOUT
-================================ */
-.container {
-  max-width: 1200px;
-  margin: auto;
+/* SECTIONS */
+.section-light {
   padding: 80px 20px;
 }
 
-.section-light {
-  background: #f6f3ee;
+.container {
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* ===============================
-   SECTION TITLES
-================================ */
 .section-title {
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
 }
 
-.section-desc {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 60px;
-  color: #4a4a4a;
-}
-
-/* Decorative left & right lines */
-.decorative-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-
-.decorative-title::before,
-.decorative-title::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(107,31,31,0.6),
-    transparent
-  );
-}
-
-/* ===============================
-   REGION / COUNTRY CARDS (FINAL)
-================================ */
+/* COUNTRY GRID */
 .country-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 22px;
-  max-width: 1050px;
-  margin: 0 auto;
-}
-
-.country-card {
-  position: relative;
-  aspect-ratio: 5 / 3;
-  border-radius: 14px;
-  background-size: 115%;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: #111;
-}
-
-.country-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.2),
-    transparent
-  );
-  display: flex;
-  align-items: flex-end;
-  padding: 14px;
-}
-
-.country-overlay span {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: #f6f3ee;
-  letter-spacing: 0.04em;
-}
-
-/* ===============================
-   FEATURED CARDS
-================================ */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
-.featured-card {
-  background: #fff;
-  padding: 40px;
-  text-align: center;
-  border-radius: 14px;
-}
-
-/* ===============================
-   DISHES
-================================ */
-.dish-track {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-}
-
-.dish {
-  min-width: 280px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
-}
-
-/* ===============================
-   FOUNDER
-================================ */
-.founder-quote {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: #6b1f1f;
-}
-
-/* ===============================
-   WHY SECTION
-================================ */
-.why-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
 
-.why-list li {
-  background: #fff;
-  padding: 30px;
+.country-card {
+  aspect-ratio: 5 / 3;
   border-radius: 14px;
-  text-align: center;
-}
-
-/* ===============================
-   FILTER TAGS
-================================ */
-.filter-tags {
+  background-size: cover;
+  background-position: center;
+  position: relative;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
+  align-items: flex-end;
+  padding: 14px;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
 }
 
-.filter-tags span {
-  background: #fff;
-  padding: 10px 18px;
-  border-radius: 20px;
-}
-
-/* ===============================
-   CTA
-================================ */
-.cta {
-  background: #6b1f1f;
-  color: #f6f3ee;
-}
-
-.cta .section-title,
-.cta .section-desc {
-  color: #f6f3ee;
-}
-
-/* ===============================
-   RESPONSIVE TWEAKS
-================================ */
-@media (max-width: 768px) {
-  .country-card {
-    aspect-ratio: 3 / 2;
-  }
-
-  .chef-hat {
-    width: 52px;
-    margin-top: 22px;
-  }
+.country-card span {
+  font-size: 1.05rem;
 }
