@@ -1,103 +1,28 @@
 /* ===============================
-   REGION / COUNTRY CARDS (PRO)
+   RESET
 ================================ */
-
-/* Grid tuned for editorial density */
-.country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 22px;
-  max-width: 1100px;        /* 🔥 CRITICAL */
-  margin: 0 auto;          /* center grid */
-}
-
-/* Card wrapper */
-.country-card {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  aspect-ratio: 5 / 3;     /* 🔥 SHORTER, MORE PROFESSIONAL */
-  background: #000;
-  cursor: pointer;
-}
-.country-card {
-  position: relative;
-  aspect-ratio: 5 / 3;
-  border-radius: 14px;
-  background-size: 115%;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-/* Image */
-.country-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-/* Overlay */
-.country-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.15),
-    transparent
-  );
-  display: flex;
-  align-items: flex-end;
-  padding: 16px;
-}
-
-/* Country name */
-.country-overlay span {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;      /* 🔥 REDUCED */
-  color: #f6f3ee;
-  letter-spacing: 0.04em;
-}
-
-/* Hover (very subtle) */
-.country-card:hover img {
-  transform: scale(1.05);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .country-grid {
-    max-width: 100%;
-  }
-
-  .country-card {
-    aspect-ratio: 3 / 2;
-  }
-}
-
-
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ================= BASE ================= */
+/* ===============================
+   BASE
+================================ */
 body {
   font-family: 'Inter', sans-serif;
   background: #f6f3ee;
   color: #6b1f1f;
+  overflow-x: hidden;
 }
 
-/* ================= HERO ================= */
+/* ===============================
+   HERO SECTION
+================================ */
 .hero {
   min-height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,9 +30,13 @@ body {
 
 .hero-maroon {
   background-color: #6b1f1f;
+  overflow: hidden;
 }
 
+/* Hero content stays above smoke */
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
@@ -117,11 +46,13 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   color: #f6f3ee;
+  line-height: 1.2;
 }
 
 .hero-content p {
-  margin: 24px 0 40px;
+  margin: 22px 0 36px;
   color: #e8d9d4;
+  letter-spacing: 0.04em;
 }
 
 .hero-btn {
@@ -131,9 +62,48 @@ body {
   padding: 14px 36px;
   border-radius: 30px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
-/* ================= LAYOUT ================= */
+/* ===============================
+   CHEF HAT
+================================ */
+.chef-hat {
+  display: block;
+  margin: 26px auto 0;
+  width: 64px;
+  opacity: 0.85;
+}
+
+/* ===============================
+   KITCHEN SMOKE LAYER
+================================ */
+.smoke-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.smoke {
+  position: absolute;
+  bottom: -120px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.05),
+    transparent 70%
+  );
+  filter: blur(28px);
+  opacity: 0;
+}
+
+/* ===============================
+   LAYOUT
+================================ */
 .container {
   max-width: 1200px;
   margin: auto;
@@ -144,12 +114,14 @@ body {
   background: #f6f3ee;
 }
 
-/* ================= TITLES ================= */
+/* ===============================
+   SECTION TITLES
+================================ */
 .section-title {
   text-align: center;
   font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
 }
 
 .section-desc {
@@ -159,7 +131,7 @@ body {
   color: #4a4a4a;
 }
 
-/* Decorative lines */
+/* Decorative left & right lines */
 .decorative-title {
   display: flex;
   align-items: center;
@@ -180,15 +152,59 @@ body {
   );
 }
 
-/* ================= GRIDS ================= */
-.country-grid,
+/* ===============================
+   REGION / COUNTRY CARDS (FINAL)
+================================ */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 22px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.country-card {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  border-radius: 14px;
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #111;
+}
+
+.country-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2),
+    transparent
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.country-overlay span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #f6f3ee;
+  letter-spacing: 0.04em;
+}
+
+/* ===============================
+   FEATURED CARDS
+================================ */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
 }
 
-.country,
 .featured-card {
   background: #fff;
   padding: 40px;
@@ -196,7 +212,9 @@ body {
   border-radius: 14px;
 }
 
-/* ================= DISHES ================= */
+/* ===============================
+   DISHES
+================================ */
 .dish-track {
   display: flex;
   gap: 30px;
@@ -210,7 +228,9 @@ body {
   border-radius: 14px;
 }
 
-/* ================= FOUNDER ================= */
+/* ===============================
+   FOUNDER
+================================ */
 .founder-quote {
   text-align: center;
   font-family: 'Playfair Display', serif;
@@ -218,11 +238,13 @@ body {
   color: #6b1f1f;
 }
 
-/* ================= WHY ================= */
+/* ===============================
+   WHY SECTION
+================================ */
 .why-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -233,7 +255,9 @@ body {
   text-align: center;
 }
 
-/* ================= FILTERS ================= */
+/* ===============================
+   FILTER TAGS
+================================ */
 .filter-tags {
   display: flex;
   justify-content: center;
@@ -247,7 +271,9 @@ body {
   border-radius: 20px;
 }
 
-/* ================= CTA ================= */
+/* ===============================
+   CTA
+================================ */
 .cta {
   background: #6b1f1f;
   color: #f6f3ee;
@@ -259,18 +285,13 @@ body {
 }
 
 /* ===============================
-   CHEF HAT BELOW HERO BUTTON
+   RESPONSIVE TWEAKS
 ================================ */
+@media (max-width: 768px) {
+  .country-card {
+    aspect-ratio: 3 / 2;
+  }
 
-.chef-hat {
-  display: block;
-  margin: 26px auto 0;
-  width: 64px;           /* elegant size */
-  opacity: 0.85;
-}
-
-/* Slight refinement on mobile */
-@media (max-width: 600px) {
   .chef-hat {
     width: 52px;
     margin-top: 22px;
