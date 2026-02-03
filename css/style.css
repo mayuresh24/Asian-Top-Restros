@@ -64,29 +64,34 @@ body {
 }
 
 /* SMOKE */
+/* ===============================
+   KITCHEN SMOKE (FINAL)
+================================ */
+
 .smoke-layer {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
 }
+
 .smoke {
   position: absolute;
-  bottom: 0;
-  width: 260px;
-  height: 260px;
+  bottom: -120px;
+  width: 240px;
+  height: 240px;
 
-  /* STRONG visibility for testing */
   background: radial-gradient(
     circle,
-    rgba(255,255,255,0.6),
-    rgba(255,255,255,0.3),
-    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.08),
     transparent 70%
   );
 
-  filter: blur(10px);   /* reduced blur */
-  opacity: 1;           /* force visible */
+  filter: blur(22px);
+  opacity: 0;
 }
 
 
