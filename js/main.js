@@ -1,44 +1,57 @@
 console.log("JS loaded");
 
 /* ===============================
-   WAIT FOR DOM
+   HERO KITCHEN SMOKE (FINAL)
 ================================ */
 document.addEventListener("DOMContentLoaded", () => {
 
   const smokeLayer = document.querySelector(".smoke-layer");
 
-  // SAFETY CHECK
+  // SAFETY: if hero or smoke layer missing, do nothing
   if (!smokeLayer) {
-    console.warn("Smoke layer not found. Skipping smoke animation.");
+    console.warn("Smoke layer not found. Smoke animation skipped.");
     return;
   }
 
-  console.log("Smoke layer found. Starting smoke animation.");
+  function createSmoke() {
+    const smoke = document.createElement("div");
+    smoke.className = "smoke";
+    smokeLayer.appendChild(smoke);
 
-function createSmoke() {
-  const smoke = document.createElement("div");
-  smoke.className = "smoke";
-  smokeLayer.appendChild(smoke);
+    const size = 200 + Math.random() * 160;
+    const startX = Math.random() * window.innerWidth;
+    const driftX = (Math.random() - 0.5) * 140;
+    const duration = 8000 + Math.random() * 4000;
 
-  smoke.style.left = "50%";
-  smoke.style.transform = "translateX(-50%)";
+    smoke.style.width = size + "px";
+    smoke.style.height = size + "px";
+    smoke.style.left = startX + "px";
 
-  smoke.animate(
-    [
-      { transform: "translate(-50%, 0)", opacity: 0 },
-      { opacity: 1 },
-      { transform: "translate(-50%, -400px)", opacity: 0 }
-    ],
-    {
-      duration: 6000,
-      easing: "ease-out"
-    }
-  );
+    smoke.animate(
+      [
+        {
+          transform: "translate(0, 0)",
+          opacity: 0
+        },
+        {
+          opacity: 0.35
+        },
+        {
+          transform: `translate(${driftX}px, -650px)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration: duration,
+        easing: "ease-out"
+      }
+    );
 
-  setTimeout(() => smoke.remove(), 6000);
-}
+    setTimeout(() => {
+      smoke.remove();
+    }, duration);
+  }
 
-  // Start smoke slowly
-  setInterval(createSmoke, 1000);
-
+  // Gentle, cinematic frequency
+  setInterval(createSmoke, 1200);
 });
