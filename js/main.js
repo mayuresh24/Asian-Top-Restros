@@ -1,41 +1,47 @@
-console.log("JS loaded");
+console.log("Golden sparks active");
 
-/* ===============================
-   HERO KITCHEN SMOKE (FINAL)
-================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  const smokeLayer = document.querySelector(".smoke-layer");
-  if (!smokeLayer) return;
+  const sparkLayer = document.querySelector(".spark-layer");
+  if (!sparkLayer) return;
 
-  function createSmoke() {
-    const smoke = document.createElement("div");
-    smoke.className = "smoke";
-    smokeLayer.appendChild(smoke);
+  function createSparkBurst() {
+    const burstX = Math.random() * window.innerWidth;
+    const burstY = window.innerHeight * 0.65;
 
-    const size = 220 + Math.random() * 180;
-    const startX = Math.random() * window.innerWidth;
-    const driftX = (Math.random() - 0.5) * 100;
-    const duration = 9000 + Math.random() * 4000;
+    const sparkCount = 14 + Math.floor(Math.random() * 10);
 
-    smoke.style.width = size + "px";
-    smoke.style.height = size + "px";
-    smoke.style.left = startX + "px";
+    for (let i = 0; i < sparkCount; i++) {
+      const spark = document.createElement("div");
+      spark.className = "spark";
+      sparkLayer.appendChild(spark);
 
-    smoke.animate(
-      [
-        { transform: "translate(0, 0)", opacity: 0 },
-        { opacity: 0.55 },
-        { transform: `translate(${driftX}px, -500px)`, opacity: 0 }
-      ],
-      {
-        duration,
-        easing: "ease-out"
-      }
-    );
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 80 + Math.random() * 120;
+      const xMove = Math.cos(angle) * distance;
+      const yMove = Math.sin(angle) * distance * -1;
 
-    setTimeout(() => smoke.remove(), duration);
+      spark.style.left = burstX + "px";
+      spark.style.top = burstY + "px";
+
+      spark.animate(
+        [
+          { transform: "translate(0,0)", opacity: 0 },
+          { opacity: 1 },
+          {
+            transform: `translate(${xMove}px, ${yMove}px)`,
+            opacity: 0
+          }
+        ],
+        {
+          duration: 1800 + Math.random() * 800,
+          easing: "ease-out"
+        }
+      );
+
+      setTimeout(() => spark.remove(), 2600);
+    }
   }
 
-  setInterval(createSmoke, 900);
+  // cinematic rhythm (not too frequent)
+  setInterval(createSparkBurst, 2200);
 });
-
