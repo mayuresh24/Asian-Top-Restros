@@ -337,7 +337,7 @@ body {
 /* Replace maroon with GIF */
 .hero-maroon {
   position: relative;
-  background-image: url("../assets/hero-kitchen.gif");
+  background-image: url("../assets/kfire.gif");
   background-size: cover;        /* 🔥 prevents stretching */
   background-position: center;   /* 🔥 keeps proportions */
   background-repeat: no-repeat;
