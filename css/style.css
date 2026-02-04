@@ -330,3 +330,15 @@ body {
     margin-top: 22px;
   }
 }
+
+
+/* ===============================
+   HERO GIF BACKGROUND (FINAL)
+================================ */
+
+.hero.hero-maroon {
+  background-image: url("../assets/kfire.gif");
+  background-size: cover;        /* fills screen, no stretch */
+  background-position: center;  /* keeps proportions */
+  background-repeat: no-repeat;
+}
