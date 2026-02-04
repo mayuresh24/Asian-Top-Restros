@@ -197,59 +197,72 @@ body {
 }
 
 /* ===============================
-   SIGNATURE DISHES (FIXED)
+   SIGNATURE SPECIALTIES (FINAL FIX)
 ================================ */
 
 .dish-track {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
 
-/* Dish card */
+/* Card */
 .dish {
   background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease;
+  border-radius: 14px;
+  overflow: hidden;                 /* 🔥 CRITICAL */
+  display: flex;
+  flex-direction: column;
 }
 
-.dish:hover {
-  transform: translateY(-6px);
-}
-
-/* Image wrapper (THIS IS THE KEY) */
+/* Image container — FIXED HEIGHT */
 .dish-img {
   width: 100%;
-  aspect-ratio: 4 / 3;     /* 🔥 FIXES ALL IMAGE ISSUES */
+  height: 180px;                    /* 🔥 CONTROLS IMAGE SIZE */
   overflow: hidden;
-  background: #000;
+  background: #111;
 }
 
-/* Image itself */
+/* Image */
 .dish-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* 🔥 crops perfectly */
+  object-fit: cover;                /* 🔥 ALWAYS FITS */
   object-position: center;
   display: block;
 }
 
-/* Text */
+/* Text content */
 .dish h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  margin: 20px 20px 10px;
+  font-size: 1.1rem;
+  margin: 16px 18px 8px;
   color: #6b1f1f;
 }
 
 .dish p {
-  margin: 0 20px 22px;
-  color: #4a4a4a;
+  margin: 0 18px 18px;
   font-size: 0.95rem;
+  color: #4a4a4a;
   line-height: 1.5;
 }
+
+/* ===============================
+   RESPONSIVE TUNING
+================================ */
+
+@media (max-width: 768px) {
+  .dish-img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dish-img {
+    height: 150px;
+  }
+}
+
 
 /* ================= FOUNDER ================= */
 .founder-quote {
