@@ -196,18 +196,59 @@ body {
   border-radius: 14px;
 }
 
-/* ================= DISHES ================= */
+/* ===============================
+   SIGNATURE DISHES (FIXED)
+================================ */
+
 .dish-track {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
 }
 
+/* Dish card */
 .dish {
-  min-width: 280px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.dish:hover {
+  transform: translateY(-6px);
+}
+
+/* Image wrapper (THIS IS THE KEY) */
+.dish-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;     /* 🔥 FIXES ALL IMAGE ISSUES */
+  overflow: hidden;
+  background: #000;
+}
+
+/* Image itself */
+.dish-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* 🔥 crops perfectly */
+  object-position: center;
+  display: block;
+}
+
+/* Text */
+.dish h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 20px 20px 10px;
+  color: #6b1f1f;
+}
+
+.dish p {
+  margin: 0 20px 22px;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* ================= FOUNDER ================= */
