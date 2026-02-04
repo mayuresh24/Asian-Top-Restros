@@ -1,139 +1,278 @@
-/* RESET */
+/* ===============================
+   REGION / COUNTRY CARDS (PRO)
+================================ */
+
+/* Grid tuned for editorial density */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+  max-width: 1100px;        /* 🔥 CRITICAL */
+  margin: 0 auto;          /* center grid */
+}
+
+/* Card wrapper */
+.country-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 5 / 3;     /* 🔥 SHORTER, MORE PROFESSIONAL */
+  background: #000;
+  cursor: pointer;
+}
+.country-card {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  border-radius: 14px;
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Image */
+.country-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Overlay */
+.country-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.15),
+    transparent
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+/* Country name */
+.country-overlay span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;      /* 🔥 REDUCED */
+  color: #f6f3ee;
+  letter-spacing: 0.04em;
+}
+
+/* Hover (very subtle) */
+.country-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .country-grid {
+    max-width: 100%;
+  }
+
+  .country-card {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BASE */
+/* ================= BASE ================= */
 body {
   font-family: 'Inter', sans-serif;
   background: #f6f3ee;
   color: #6b1f1f;
-  overflow-x: hidden;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
   min-height: 100vh;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-maroon {
-  background: #6b1f1f;
-  overflow: hidden;
+  background-color: #6b1f1f;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
   text-align: center;
   max-width: 900px;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   color: #f6f3ee;
 }
 
 .hero-content p {
-  margin: 20px 0 30px;
+  margin: 24px 0 40px;
   color: #e8d9d4;
 }
 
 .hero-btn {
-  padding: 14px 36px;
-  border-radius: 30px;
-  border: none;
   background: #f6f3ee;
   color: #6b1f1f;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
-/* CHEF HAT */
-.chef-hat {
-  display: block;
-  width: 60px;
-  margin: 24px auto 0;
-  opacity: 0.85;
-}
-
-/* ===============================
-   GOLDEN SPARKS (HERO)
-================================ */
-
-.spark-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.spark {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(255,215,130,1),
-    rgba(255,160,60,0.9),
-    rgba(255,120,20,0.6),
-    transparent 70%
-  );
-
-  box-shadow:
-    0 0 12px rgba(255,180,90,0.9),
-    0 0 24px rgba(255,140,40,0.6);
-
-  opacity: 0;
-}
-
-
-/* SECTIONS */
-.section-light {
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
   padding: 80px 20px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
+.section-light {
+  background: #f6f3ee;
 }
 
+/* ================= TITLES ================= */
 .section-title {
   text-align: center;
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  margin-bottom: 40px;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
 }
 
-/* COUNTRY GRID */
-.country-grid {
+.section-desc {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 60px;
+  color: #4a4a4a;
+}
+
+/* Decorative lines */
+.decorative-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.decorative-title::before,
+.decorative-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(107,31,31,0.6),
+    transparent
+  );
+}
+
+/* ================= GRIDS ================= */
+.country-grid,
+.featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+}
+
+.country,
+.featured-card {
+  background: #fff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 14px;
+}
+
+/* ================= DISHES ================= */
+.dish-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+}
+
+.dish {
+  min-width: 280px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+/* ================= FOUNDER ================= */
+.founder-quote {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #6b1f1f;
+}
+
+/* ================= WHY ================= */
+.why-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 20px;
 }
 
-.country-card {
-  aspect-ratio: 5 / 3;
+.why-list li {
+  background: #fff;
+  padding: 30px;
   border-radius: 14px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding: 14px;
-  color: #fff;
-  font-family: 'Playfair Display', serif;
+  text-align: center;
 }
 
-.country-card span {
-  font-size: 1.05rem;
+/* ================= FILTERS ================= */
+.filter-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-tags span {
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+}
+
+/* ================= CTA ================= */
+.cta {
+  background: #6b1f1f;
+  color: #f6f3ee;
+}
+
+.cta .section-title,
+.cta .section-desc {
+  color: #f6f3ee;
+}
+
+/* ===============================
+   CHEF HAT BELOW HERO BUTTON
+================================ */
+
+.chef-hat {
+  display: block;
+  margin: 26px auto 0;
+  width: 64px;           /* elegant size */
+  opacity: 0.85;
+}
+
+/* Slight refinement on mobile */
+@media (max-width: 600px) {
+  .chef-hat {
+    width: 52px;
+    margin-top: 22px;
+  }
 }
