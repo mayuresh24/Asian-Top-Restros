@@ -319,8 +319,8 @@ body {
 .chef-hat {
   display: block;
   margin: 26px auto 0;
-  width: 64px;  /* elegant size 64*/
-height:90px;
+  width: 154px;  /* elegant size 64 and 90*/
+height:154px;
   opacity: 0.85;
 }
 
