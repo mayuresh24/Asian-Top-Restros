@@ -347,13 +347,24 @@ height:154px;
 /* ===============================
    HERO GIF BACKGROUND (FINAL)
 ================================ */
-
 .hero.hero-maroon {
-  background-image: url("../assets/kfire.gif");
-  background-size: cover;        /* fills screen, no stretch */
-  background-position: center;  /* keeps proportions */
-  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
 }
+
+/* VIDEO BACKGROUND */
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+
 /* HERO TAGLINE CONTAINER */
 .hero-tagline {
   position: relative;
