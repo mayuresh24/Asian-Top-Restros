@@ -1,3 +1,14 @@
+.section-icon {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-icon img {
+  width: 48px;        /* adjust size */
+  height: auto;
+  opacity: 0.9;
+}
+
 /* ===============================
    REGION / COUNTRY CARDS (PRO)
 ================================ */
