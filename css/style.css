@@ -1,3 +1,79 @@
+/*image top restro starts*/
+/* GRID */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* CARD BASE */
+.featured-card {
+  position: relative;
+  aspect-ratio: 4 / 5; /* responsive image ratio */
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+/* DARK OVERLAY FOR READABILITY */
+.featured-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.15),
+    transparent
+  );
+  z-index: 0;
+}
+
+/* TEXT ABOVE OVERLAY */
+.featured-card h3,
+.featured-card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* HOVER */
+.featured-card:hover {
+  transform: translateY(-6px);
+}
+
+/* TYPOGRAPHY */
+.featured-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.featured-card p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
+
+.card-1 {
+  background-image: url("assets/restros/bali.jpeg");
+}
+
+.card-2 {
+  background-image: url("assets/restros/halia.jpg");
+}
+
+.card-3 {
+  background-image: url("assets/restros/lakeview.jpg");
+}
+
+/*image top restro ends*/
+
 .section-icon {
   text-align: center;
   margin-bottom: 12px;
