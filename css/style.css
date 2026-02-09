@@ -208,7 +208,7 @@ body {
   transform: translateY(-6px);
 }
 
-.featured-card h3 {
+.featured-card h3 { 
   font-size: 1.2rem;
 }
 
@@ -218,9 +218,9 @@ body {
 }
 
 /* IMAGES */
-.card-1 { background-image: url("../assets/restros/bali.jpeg"); }
-.card-2 { background-image: url("../assets/restros/halia.jpg"); }
-.card-3 { background-image: url("../assets/restros/lakeview.jpg"); }
+.card-1 { background-image: url("assets/restros/bali.jpeg"); }
+.card-2 { background-image: url("assets/restros/halia.jpg"); }
+.card-3 { background-image: url("assets/restros/lakeview.jpg"); }
 
 /* ================= DISHES ================= */
 .dish-track {
