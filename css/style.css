@@ -1,3 +1,86 @@
+/* ===============================
+   REGION / COUNTRY CARDS (PRO)
+================================ */
+
+/* Grid tuned for editorial density */
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+  max-width: 1100px;        /* 🔥 CRITICAL */
+  margin: 0 auto;          /* center grid */
+}
+
+/* Card wrapper */
+.country-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 5 / 3;     /* 🔥 SHORTER, MORE PROFESSIONAL */
+  background: #000;
+  cursor: pointer;
+}
+.country-card {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  border-radius: 14px;
+  background-size: 115%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Image */
+.country-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Overlay */
+.country-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.15),
+    transparent
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+/* Country name */
+.country-overlay span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;      /* 🔥 REDUCED */
+  color: #f6f3ee;
+  letter-spacing: 0.04em;
+}
+
+/* Hover (very subtle) */
+.country-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .country-grid {
+    max-width: 100%;
+  }
+
+  .country-card {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+
 /* ================= RESET ================= */
 * {
   margin: 0;
@@ -20,35 +103,11 @@ body {
   justify-content: center;
 }
 
-.hero.hero-maroon {
-  position: relative;
-  overflow: hidden;
-  background-color: #000;
-}
-
-.hero-bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero.hero-maroon::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 1;
+.hero-maroon {
+  background-color: #6b1f1f;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
@@ -60,6 +119,11 @@ body {
   color: #f6f3ee;
 }
 
+.hero-content p {
+  margin: 24px 0 40px;
+  color: #e8d9d4;
+}
+
 .hero-btn {
   background: #f6f3ee;
   color: #6b1f1f;
@@ -67,36 +131,6 @@ body {
   padding: 14px 36px;
   border-radius: 30px;
   cursor: pointer;
-}
-
-/* ================= HERO TAGLINE ================= */
-.hero-tagline {
-  margin-top: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.65)
-  );
-  border-radius: 999px;
-  font-size: 14px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
-}
-
-.hero-tagline .highlight {
-  color: #fff;
-  font-weight: 600;
-}
-
-.hero-tagline .dot {
-  color: #d4af37;
-  font-size: 10px;
 }
 
 /* ================= LAYOUT ================= */
@@ -125,125 +159,117 @@ body {
   color: #4a4a4a;
 }
 
-/* ================= REGION ================= */
-.country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.country-card {
-  position: relative;
-  aspect-ratio: 5 / 3;
-  border-radius: 14px;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.country-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.15),
-    transparent
-  );
+/* Decorative lines */
+.decorative-title {
   display: flex;
-  align-items: flex-end;
-  padding: 16px;
-}
-
-.country-overlay span {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: #f6f3ee;
-}
-
-/* ================= FEATURED RESTAURANTS ================= */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+  justify-content: center;
   gap: 24px;
 }
 
-.featured-card {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 22px;
-  color: #fff;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.4s ease;
-}
-
-.featured-card::before {
+.decorative-title::before,
+.decorative-title::after {
   content: "";
-  position: absolute;
-  inset: 0;
+  flex: 1;
+  height: 1px;
   background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.15),
+    to right,
+    transparent,
+    rgba(107,31,31,0.6),
     transparent
   );
 }
 
-.featured-card h3,
-.featured-card p {
-  position: relative;
-  z-index: 1;
+/* ================= GRIDS ================= */
+.country-grid,
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
 }
 
-.featured-card:hover {
-  transform: translateY(-6px);
+.country,
+.featured-card {
+  background: #fff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 14px;
 }
 
-.featured-card h3 { 
-  font-size: 1.2rem;
-}
+/* ===============================
+   SIGNATURE SPECIALTIES (FINAL FIX)
+================================ */
 
-.featured-card p {
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-/* IMAGES */
-.card-1 { background-image: url("assets/restros/bali.jpeg"); }
-.card-2 { background-image: url("assets/restros/halia.jpg"); }
-.card-3 { background-image: url("assets/restros/lakeview.jpg"); }
-
-/* ================= DISHES ================= */
 .dish-track {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
 }
 
+/* Card */
 .dish {
-  background: #fff;
+  background: #ffffff;
   border-radius: 14px;
-  overflow: hidden;
+  overflow: hidden;                 /* 🔥 CRITICAL */
+  display: flex;
+  flex-direction: column;
 }
 
+/* Image container — FIXED HEIGHT */
 .dish-img {
-  height: 180px;
+  width: 100%;
+  height: 180px;                    /* 🔥 CONTROLS IMAGE SIZE */
   overflow: hidden;
+  background: #111;
 }
 
+/* Image */
 .dish-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;                /* 🔥 ALWAYS FITS */
+  object-position: center;
+  display: block;
+}
+
+/* Text content */
+.dish h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin: 16px 18px 8px;
+  color: #6b1f1f;
+}
+
+.dish p {
+  margin: 0 18px 18px;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+/* ===============================
+   RESPONSIVE TUNING
+================================ */
+
+@media (max-width: 768px) {
+  .dish-img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dish-img {
+    height: 150px;
+  }
+}
+
+
+/* ================= FOUNDER ================= */
+.founder-quote {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #6b1f1f;
 }
 
 /* ================= WHY ================= */
@@ -261,6 +287,20 @@ body {
   text-align: center;
 }
 
+/* ================= FILTERS ================= */
+.filter-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-tags span {
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+}
+
 /* ================= CTA ================= */
 .cta {
   background: #6b1f1f;
@@ -272,14 +312,21 @@ body {
   color: #f6f3ee;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .hero-tagline {
-    font-size: 12px;
-    padding: 8px 16px;
-  }
+/* ===============================
+   CHEF HAT BELOW HERO BUTTON
+================================ */
 
-  .dish-img {
-    height: 160px;
+.chef-hat {
+  display: block;
+  margin: 26px auto 0;
+  width: 64px;           /* elegant size */
+  opacity: 0.85;
+}
+
+/* Slight refinement on mobile */
+@media (max-width: 600px) {
+  .chef-hat {
+    width: 52px;
+    margin-top: 22px;
   }
 }
